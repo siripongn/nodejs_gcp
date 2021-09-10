@@ -6,4 +6,4 @@ steps:
     args: ['push','gcr.io/$PROJECT_ID/${_SERVICE_NAME}']
 
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['run','depoly','${_SERVICE_NAME}','--image','gcr.io/$PROJECT_ID/${_SERVICE_NAME}:${SHORT_SHA}','--region','us-central1','--platform','managed',"--allow-unauthenticated"]
+    args: ['run','deploy','${_SERVICE_NAME}','--image','gcr.io/$PROJECT_ID/${_SERVICE_NAME}:${SHORT_SHA}','--region','us-central1','--platform','managed',"--allow-unauthenticated"]
