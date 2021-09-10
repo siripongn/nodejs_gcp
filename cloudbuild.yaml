@@ -1,9 +1,9 @@
 steps:
   - name: gcr.io/cloud-builder/docker
-    arg: ['build','-t','gcr.io/$PROJECT_ID/${_SERVICE_NAME}:${SHORT_SHA}','.']
+    args: ['build','-t','gcr.io/$PROJECT_ID/${_SERVICE_NAME}:${SHORT_SHA}','.']
 
   - name: 'gcr.io/cloud-builder/docker'
-    arg: ['push','gcr.io/$PROJECT_ID/${_SERVICE_NAME}']
+    args: ['push','gcr.io/$PROJECT_ID/${_SERVICE_NAME}']
 
   - name: 'gcr.io/cloud-builder/gcloud'
-    arg: ['run','depoly','${_SERVICE_NAME}','--image','gcr.io/$PROJECT_ID/${_SERVICE_NAME}:${SHORT_SHA}','--region','us-central1','--platform','managed',"--allow-unauthenticated"]
+    args: ['run','depoly','${_SERVICE_NAME}','--image','gcr.io/$PROJECT_ID/${_SERVICE_NAME}:${SHORT_SHA}','--region','us-central1','--platform','managed',"--allow-unauthenticated"]
