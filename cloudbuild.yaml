@@ -8,14 +8,16 @@ steps:
   ##- name: 'gcr.io/cloud-builders/gcloud'
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
+    args: ['run','deploy','${_SERVICE_NAME}','--image','gcr.io/$PROJECT_ID/${_SERVICE_NAME}:$COMMIT_SHA','--region','us-central1','--platform','managed',"--allow-unauthenticated"]
     # args: ['run','deploy','${_SERVICE_NAME}','--image','gcr.io/$PROJECT_ID/${_SERVICE_NAME}:${SHORT_SHA}','--region','us-central1','--platform','managed',"--allow-unauthenticated"]
-    args:
-    - 'run'
-    - 'deploy'
-    - '${_SERVICE_NAME}'
-    - '--image'
-    - 'gcr.io/$PROJECT_ID/${_SERVICE_NAME}:$COMMIT_SHA'
-    - '--region'
-    - 'us-central1'
-    images:
-    - 'gcr.io/$PROJECT_ID/${_SERVICE_NAME}:$COMMIT_SHA'
+   
+    # args:
+    # - 'run'
+    # - 'deploy'
+    # - '${_SERVICE_NAME}'
+    # - '--image'
+    # - 'gcr.io/$PROJECT_ID/${_SERVICE_NAME}:$COMMIT_SHA'
+    # - '--region'
+    # - 'us-central1'
+    # images:
+    # - 'gcr.io/$PROJECT_ID/${_SERVICE_NAME}:$COMMIT_SHA'
